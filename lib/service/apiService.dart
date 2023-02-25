@@ -83,6 +83,7 @@ class ApiService {
     }
   }
 
+  //done
   Future<List<Schedule>?> getScheduelarData({required String machId, required String type, required String sameMachine}) async {
     print("called api");
     print("called $machId");
@@ -188,7 +189,7 @@ class ApiService {
     }
   }
 
-  List<RawMaterial> sortRaw(List<RawMaterial> rawmaterial) {
+  List<RawMaterial> sortRawmaterial(List<RawMaterial> rawmaterial) {
     rawmaterial.sort((a, b) => int.parse(a.partNunber ?? '0').compareTo(int.parse(b.partNunber ?? '0')));
     // log("mesin : " + rawmaterial.toString());
     RawMaterial temp = new RawMaterial();
@@ -320,7 +321,7 @@ class ApiService {
           rawMateriallist = rawMateriallist.where((element) => element.partNunber != "0").toList();
           // rawMateriallist = sortRaw(rawMateriallist);
         }
-        rawMateriallist = sortRaw(rawMateriallist);
+        rawMateriallist = sortRawmaterial(rawMateriallist);
 
         print(rawMateriallist);
         return rawMateriallist;

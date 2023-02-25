@@ -1,7 +1,8 @@
 import 'dart:developer';
 
-import 'package:bluecold/utils/ApiUrls.dart';
 import 'package:http/http.dart' as http;
+
+import 'ApiUrls.dart';
 
 class ApiRequest<ReqModel, ResModel> {
   Map<String, String> requestHeaders = {
@@ -26,6 +27,28 @@ class ApiRequest<ReqModel, ResModel> {
     );
     log("ApiRequest Response ${response.statusCode} : ${response.body}");
     if (response.statusCode == 202) {
+      ResModel responseModel = reponseFromJson(response.body);
+      return responseModel;
+    }
+    return null;
+    // } catch (e) {
+    //   return null;
+    // }
+  }
+
+  Future<ResModel?> get({
+    required String url,
+    required Function(String) reponseFromJson,
+  }) async {
+    // try {
+    var uri = Uri.parse(ApiUrls.baseUrl + url);
+    log("ApiRequest POST : $uri");
+    var response = await http.get(
+      uri,
+      headers: requestHeaders,
+    );
+    log("ApiRequest Response ${response.statusCode} : ${response.body}");
+    if (response.statusCode == 200) {
       ResModel responseModel = reponseFromJson(response.body);
       return responseModel;
     }
