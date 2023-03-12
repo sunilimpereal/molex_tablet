@@ -16,16 +16,13 @@ class _SchduleRowP1State extends State<SchduleRowP1> {
       padding: const EdgeInsets.all(2.0),
       child: Container(
         child: Row(
-          children: [cell(text: "${widget.schedule.orderId}",width: 0.1)],
+          children: [cell(text: "${widget.schedule.orderId}", width: 0.1)],
         ),
       ),
     );
   }
 
   Widget cell({required String text, required double width}) {
-    return Container(
-      color: Colors.red,
-      width: MediaQuery.of(context).size.width*width,
-      child: Text("$text"));
+    return Container(color: Colors.red, width: MediaQuery.of(context).size.width * width, child: Text("$text"));
   }
 }

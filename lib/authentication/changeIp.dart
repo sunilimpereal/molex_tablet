@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import '../../login.dart';
+import 'login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../main.dart';
-import '../../utils/config.dart';
+import '../main.dart';
+import '../utils/config.dart';
 
 class ChangeIp extends StatefulWidget {
   @override

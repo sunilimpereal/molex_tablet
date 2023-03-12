@@ -7,7 +7,7 @@ import 'package:molex_tab/model_api/crimping/double_crimping/doubleCrimpingEjobD
 import 'package:molex_tab/model_api/doublecrimp/dcValidationModel.dart';
 import 'package:molex_tab/model_api/doublecrimp/doublecrimpBundlerequestModel.dart';
 import 'package:molex_tab/model_api/error_model.dart';
-import 'package:molex_tab/screens/operator%202/process/double%20crimp/doubleCrimpInfo.dart';
+import 'package:molex_tab/screens/crimping/process/double%20crimp/doubleCrimpInfo.dart';
 import '../main.dart';
 import '../model_api/Preparation/getpreparationSchedule.dart';
 import '../model_api/Preparation/postPreparationDetail.dart';
@@ -32,7 +32,7 @@ import '../model_api/cableTerminalA_model.dart';
 import '../model_api/cableTerminalB_model.dart';
 import '../model_api/fgDetail_model.dart';
 import '../model_api/generateLabel_model.dart';
-import '../model_api/login_model.dart';
+import '../authentication/data/models/login_model.dart';
 import 'package:http/http.dart' as http;
 import '../model_api/machinedetails_model.dart';
 import '../model_api/materialTrackingTerminalA_model.dart';

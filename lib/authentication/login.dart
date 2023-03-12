@@ -4,11 +4,13 @@ import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:lottie/lottie.dart';
+import 'package:molex_tab/authentication/data/auth_bloc.dart';
 import 'package:molex_tab/utils/config.dart';
-import 'model_api/login_model.dart';
+import 'async_button.dart';
+import 'data/models/login_model.dart';
 // import 'package:lottie/lottie.dart';
-import 'package:molex_tab/Machine_Id.dart';
-import 'package:molex_tab/screens/utils/changeIp.dart';
+import 'package:molex_tab/screens/machine/Machine_Id.dart';
+import 'package:molex_tab/authentication/changeIp.dart';
 import 'package:molex_tab/screens/utils/customKeyboard.dart';
 import 'package:molex_tab/screens/utils/updateApp.dart';
 import 'package:molex_tab/service/apiService.dart';
@@ -129,53 +131,15 @@ class _LoginScanState extends State<LoginScan> {
                                   width: 10,
                                 ),
                           SizedBox(height: 10),
-                          Container(
-                            height: 40,
-                            width: 200,
-                            child: ElevatedButton(
-                                style: ButtonStyle(
-                                  shadowColor: MaterialStateProperty.resolveWith<Color>(
-                                    (Set<MaterialState> states) {
-                                      if (states.contains(MaterialState.pressed)) return Colors.white;
-                                      return Colors.white; // Use the component's default.
-                                    },
-                                  ),
-                                  elevation: MaterialStateProperty.resolveWith<double>((Set<MaterialState> states) {
-                                    return 10;
-                                  }),
-                                  backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                                    (Set<MaterialState> states) {
-                                      if (states.contains(MaterialState.pressed)) return Colors.green;
-                                      return Colors.red; // Use the component's default.
-                                    },
-                                  ),
-                                ),
-                                onPressed: () {
-                                  loginScan(context);
-                                },
-                                child: Text(
-                                  'Login',
-                                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-                                )),
-                          ),
+                          AsyncButton(
+                              child: Text("Login"),
+                              onPressed: () async {
+                                // await Future.delayed(Duration(seconds: 15));
+                                await loginScan(context);
+                                // await loginScan(context);
+                                return;
+                              }),
                           SizedBox(height: 10),
-                          // Container(
-                          //   height: 0,
-                          //   width: 0,
-                          //   child: TextFieldWithNoKeyboard(
-                          //     controller: scanController,
-                          //     autofocus: true,
-                          //     cursorColor: Colors.green,
-                          //     style: TextStyle(color: Colors.black),
-                          //     onValueUpdated: (value) {
-                          //       print(value);
-                          //       setState(() {
-                          //         userId = value;
-                          //       });
-                          //     },
-                          //   ),
-                          // ),
-
                           Container(
                               alignment: Alignment.center,
                               width: 0,
@@ -346,42 +310,42 @@ class _LoginScanState extends State<LoginScan> {
     );
   }
 
-  void loginScan(BuildContext context) {
+  loginScan(BuildContext context) async {
     if (userId.length != 0) {
       setState(() {
         loading = true;
       });
-      print('pressed');
-      apiService.empIdlogin(userId).then((value) {
-        if (value != null) {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-                builder: (context) => MachineId(
-                      employee: value,
-                    )),
-          );
-        } else {
-          setState(() {
-            _textNode.requestFocus();
-            loading = false;
-          });
-          Fluttertoast.showToast(
-            msg: "login Failed",
-            toastLength: Toast.LENGTH_SHORT,
-            gravity: ToastGravity.BOTTOM,
-            timeInSecForIosWeb: 1,
-            backgroundColor: Colors.red,
-            textColor: Colors.white,
-            fontSize: 16.0,
-          );
-          setState(() {
-            userId = "";
-            _textController.clear();
-            scanController.clear();
-          });
-        }
-      });
+      Employee emp = await AuthProvider.of(context).getEmployee(empId: userId);
+      if (emp != null) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+              builder: (context) => MachineId(
+                    employee: emp,
+                  )),
+        );
+      } else {
+        setState(() {
+          _textNode.requestFocus();
+          loading = false;
+        });
+        Fluttertoast.showToast(
+          msg: "login Failed",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0,
+        );
+        setState(() {
+          userId = "";
+          _textController.clear();
+          scanController.clear();
+        });
+      }
+
+      return;
     }
   }
 

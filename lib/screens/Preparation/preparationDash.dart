@@ -5,9 +5,9 @@ import 'package:flutter/services.dart';
 import 'package:molex_tab/model_api/machinedetails_model.dart';
 import 'package:molex_tab/screens/widgets/drawer.dart';
 
-import '../../Machine_Id.dart';
+import '../machine/Machine_Id.dart';
 import '../../model_api/Preparation/getpreparationSchedule.dart';
-import '../../model_api/login_model.dart';
+import '../../authentication/data/models/login_model.dart';
 import '../../model_api/schedular_model.dart';
 import '../../utils/config.dart';
 import 'process/preparationProcess.dart';

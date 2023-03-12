@@ -7,7 +7,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:input_with_keyboard_control/input_with_keyboard_control.dart';
 import 'package:molex_tab/model_api/kitting_plan/getKittingData_model.dart';
 import 'package:molex_tab/model_api/kitting_plan/save_kitting_model.dart';
-import 'package:molex_tab/model_api/login_model.dart';
+import 'package:molex_tab/authentication/data/models/login_model.dart';
 import 'package:molex_tab/model_api/machinedetails_model.dart';
 import 'package:molex_tab/screens/widgets/drawer.dart';
 import 'package:molex_tab/screens/widgets/showBundles.dart';

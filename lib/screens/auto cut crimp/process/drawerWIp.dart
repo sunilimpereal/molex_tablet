@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import '../../../model_api/login_model.dart';
+import '../../../authentication/data/models/login_model.dart';
 import '../../../model_api/machinedetails_model.dart';
 import '../../../model_api/schedular_model.dart';
-import '../../operator%202/Home_0p2.dart';
+import '../../crimping/Home_0p2.dart';
 import '../../widgets/showBundleDetail.dart';
 
 import '../Homepage.dart';
@@ -36,9 +36,7 @@ class _DrawerWidgetWIPState extends State<DrawerWidgetWIP> {
       color: Colors.transparent,
       width: MediaQuery.of(context).size.width * 0.30,
       child: Container(
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(10))),
+        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(10))),
         child: Stack(
           children: [
             Column(
@@ -75,16 +73,10 @@ class _DrawerWidgetWIPState extends State<DrawerWidgetWIP> {
                 child: Container(
                   height: 40,
                   width: 40,
-                  decoration: BoxDecoration(
-                      color: Colors.red.shade50,
-                      borderRadius: BorderRadius.all(Radius.circular(500))),
+                  decoration: BoxDecoration(color: Colors.red.shade50, borderRadius: BorderRadius.all(Radius.circular(500))),
                   child: Center(
-                    child: Text(
-                        "${widget.employee.employeeName.substring(0, 2).toUpperCase()}", // TODO
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500)),
+                    child: Text("${widget.employee.employeeName.substring(0, 2).toUpperCase()}", // TODO
+                        style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.w500)),
                   ),
                 ),
               ),
@@ -97,10 +89,7 @@ class _DrawerWidgetWIPState extends State<DrawerWidgetWIP> {
                         Container(
                           width: 170,
                           child: Text("${widget.employee.employeeName}",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500)),
+                              style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.w500)),
                         )
                       ],
                     ),
@@ -111,11 +100,7 @@ class _DrawerWidgetWIPState extends State<DrawerWidgetWIP> {
                       children: [
                         Container(
                           width: 170,
-                          child: Text("${widget.employee.empId}",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500)),
+                          child: Text("${widget.employee.empId}", style: TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.w500)),
                         ),
                       ],
                     ),

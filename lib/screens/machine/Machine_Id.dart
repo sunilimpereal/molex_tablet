@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:lottie/lottie.dart';
+import 'package:molex_tab/authentication/async_button.dart';
+import 'package:molex_tab/authentication/data/auth_bloc.dart';
 import 'package:molex_tab/utils/config.dart';
-import 'model_api/login_model.dart';
-import 'model_api/machinedetails_model.dart';
-import 'screens/Crimping%20Patrol/CrimpingPartrolDash.dart';
-import 'screens/Preparation/preparationDash.dart';
-import 'screens/kitting_plan/kitting_plan_dash.dart';
-import 'screens/operator%202/Home_0p2.dart';
-import 'screens/operator/Homepage.dart';
-import 'screens/visual%20Inspector/Home_visual_inspector.dart';
-import 'service/apiService.dart';
+import '../../authentication/data/models/login_model.dart';
+import '../../model_api/machinedetails_model.dart';
+import '../Crimping%20Patrol/CrimpingPartrolDash.dart';
+import '../Preparation/preparationDash.dart';
+import '../kitting_plan/kitting_plan_dash.dart';
+import '../crimping/Home_0p2.dart';
+import '../auto cut crimp/Homepage.dart';
+import '../visual%20Inspector/Home_visual_inspector.dart';
+import '../../service/apiService.dart';
 
 class MachineId extends StatefulWidget {
   Employee employee;
@@ -127,41 +129,19 @@ class _MachineIdState extends State<MachineId> {
                                     width: 10,
                                   ),
                             SizedBox(height: 10),
-                            Container(
-                              height: 40,
-                              width: 230,
-                              child: ElevatedButton(
-                                style: ButtonStyle(
-                                  shadowColor: MaterialStateProperty.resolveWith<Color>(
-                                    (Set<MaterialState> states) {
-                                      if (states.contains(MaterialState.pressed)) return Colors.white;
-                                      return Colors.white; // Use the component's default.
-                                    },
-                                  ),
-                                  elevation: MaterialStateProperty.resolveWith<double>((Set<MaterialState> states) {
-                                    return 10;
-                                  }),
-                                  backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                                    (Set<MaterialState> states) {
-                                      if (states.contains(MaterialState.pressed)) return Colors.green;
-                                      return Colors.red; // Use the component's default.
-                                    },
-                                  ),
+                            AsyncButton(
+                                child: ButtonText(
+                                  text: 'Machine Login',
                                 ),
                                 onPressed: () {
                                   machinScan();
-                                },
-                                child: Text(
-                                  'Machine Login',
-                                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                                ),
-                              ),
-                            ),
+                                }),
+
                             SizedBox(height: 10),
                             //INSPECTION
                             Container(
                                 height: 40,
-                                width: 230,
+                                width: 200,
                                 child: ElevatedButton(
                                   style: ButtonStyle(
                                     backgroundColor: MaterialStateProperty.resolveWith<Color>(
@@ -198,7 +178,7 @@ class _MachineIdState extends State<MachineId> {
                             SizedBox(height: 10),
                             Container(
                               height: 40,
-                              width: 230,
+                              width: 200,
                               child: ElevatedButton(
                                   style: ButtonStyle(
                                     backgroundColor: MaterialStateProperty.resolveWith<Color>(
@@ -295,26 +275,31 @@ class _MachineIdState extends State<MachineId> {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Column(
-                          children: [
-                            Text(
-                              widget.employee.employeeName,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 18,
-                              ),
-                            ),
-                            Text(
-                              widget.employee.empId,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ],
-                        ),
+                        StreamBuilder<Employee>(
+                            stream: AuthProvider.of(context).employeeStream,
+                            builder: (context, snapshot) {
+                              return Column(
+                                children: [
+                                  Text(
+                                    // widget.employee.employeeName,
+                                    snapshot.data!.employeeName,
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                  Text(
+                                    snapshot.data!.empId,
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ],
+                              );
+                            }),
                         SizedBox(width: 15),
                         Material(
                           elevation: 5,

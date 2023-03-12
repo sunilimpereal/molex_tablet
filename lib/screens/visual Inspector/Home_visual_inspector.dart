@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:molex_tab/screens/widgets/drawer.dart';
 
 import '../../main.dart';
-import '../../model_api/login_model.dart';
+import '../../authentication/data/models/login_model.dart';
 import '../../model_api/schedular_model.dart';
 import '../../model_api/visualInspection/VI_scheduler_model.dart';
 import '../../models/vi_schedule.dart';

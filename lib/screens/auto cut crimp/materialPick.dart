@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
-import '../../model_api/login_model.dart';
+import '../../authentication/data/models/login_model.dart';
 import '../../model_api/machinedetails_model.dart';
 import '../../model_api/materialTrackingCableDetails_model.dart';
 import '../../model_api/postrawmatList_model.dart';

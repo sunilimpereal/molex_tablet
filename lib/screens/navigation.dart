@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../login.dart';
+import '../authentication/login.dart';
 import '../model_api/machinedetails_model.dart';
 import '../model_api/schedular_model.dart';
 import 'Preparation/preparationDash.dart';
-import 'operator%202/Home_0p2.dart';
+import 'crimping/Home_0p2.dart';
 import 'print.dart';
-import 'utils/changeIp.dart';
+import '../authentication/changeIp.dart';
 import 'visual%20Inspector/Home_visual_inspector.dart';
 import '../service/apiService.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -17,7 +17,7 @@ class NavPage extends StatefulWidget {
   final Schedule schedule;
   NavPage({required this.machine, required this.userId, required this.schedule});
   @override
-  _NavPageState createState() => _NavPageState(); 
+  _NavPageState createState() => _NavPageState();
 }
 
 class _NavPageState extends State<NavPage> {
@@ -33,13 +33,10 @@ class _NavPageState extends State<NavPage> {
             title: Text('Change IP'),
             onTap: () {
               ApiService apiService = new ApiService();
-              apiService.getmachinedetails(widget.machine.machineNumber??'').then((value) {
+              apiService.getmachinedetails(widget.machine.machineNumber ?? '').then((value) {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => ChangeIp(
-
-                          )),
+                  MaterialPageRoute(builder: (context) => ChangeIp()),
                 );
               });
             },
@@ -51,7 +48,7 @@ class _NavPageState extends State<NavPage> {
           //       context,
           //       MaterialPageRoute(
           //           builder: (context) => PreprationDash(
-                         
+
           //                 userId: widget.userId,
           //               )),
           //     );
@@ -95,8 +92,7 @@ class _NavPageState extends State<NavPage> {
           ListTile(
             title: Text("Log Out"),
             onTap: () async {
-              SharedPreferences preferences =
-                  await SharedPreferences.getInstance();
+              SharedPreferences preferences = await SharedPreferences.getInstance();
               preferences.remove('login');
 
               Navigator.pushReplacement(

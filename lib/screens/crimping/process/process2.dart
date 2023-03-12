@@ -11,7 +11,7 @@ import '../../../model_api/cableDetails_model.dart';
 import '../../../model_api/cableTerminalA_model.dart';
 import '../../../model_api/cableTerminalB_model.dart';
 import '../../../model_api/crimping/getCrimpingSchedule.dart';
-import '../../../model_api/login_model.dart';
+import '../../../authentication/data/models/login_model.dart';
 import '../../../model_api/machinedetails_model.dart';
 import '../../../model_api/materialTrackingCableDetails_model.dart';
 import '../../../models/bundle_scan.dart';

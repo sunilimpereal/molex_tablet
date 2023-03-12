@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:lottie/lottie.dart';
-import '../../model_api/login_model.dart';
+import '../../authentication/data/models/login_model.dart';
 import '../../model_api/machinedetails_model.dart';
 import '../../utils/config.dart';
 import 'preparationDash.dart';
-import '../operator/Homepage.dart';
+import '../auto cut crimp/Homepage.dart';
 import '../../service/apiService.dart';
 
 class PrepMachine extends StatefulWidget {

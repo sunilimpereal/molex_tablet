@@ -9,8 +9,8 @@ import 'package:molex_tab/model_api/crimping/double_crimping/doubleCrimpingEjobD
 import 'package:molex_tab/model_api/doublecrimp/doublecrimpBundlerequestModel.dart';
 import 'package:molex_tab/model_api/materialTrackingCableDetails_model.dart';
 import 'package:molex_tab/model_api/process1/getBundleListGl.dart';
-import 'package:molex_tab/screens/operator%202/process/double%20crimp/doubleCrimpInfo.dart';
-import 'package:molex_tab/screens/operator/process/materialTableWIP.dart';
+import 'package:molex_tab/screens/crimping/process/double%20crimp/doubleCrimpInfo.dart';
+import 'package:molex_tab/screens/auto%20cut%20crimp/process/materialTableWIP.dart';
 import 'package:molex_tab/screens/utils/loadingButton.dart';
 import 'package:molex_tab/screens/widgets/alertDialog/alertDialogCrimping.dart';
 import 'package:molex_tab/screens/widgets/alertDialog/customAlertDialong.dart';

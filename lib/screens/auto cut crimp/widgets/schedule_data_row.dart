@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
-import 'package:molex_tab/model_api/login_model.dart';
+import 'package:molex_tab/authentication/data/models/login_model.dart';
 import 'package:molex_tab/model_api/machinedetails_model.dart';
 import 'package:molex_tab/model_api/process1/100Complete_model.dart';
 import 'package:molex_tab/model_api/schedular_model.dart';

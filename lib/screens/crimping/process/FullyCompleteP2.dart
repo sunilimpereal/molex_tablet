@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:molex_tab/screens/operator/process/process.dart';
+import 'package:molex_tab/screens/auto%20cut%20crimp/process/process.dart';
 import '../../../main.dart';
 import '../../../model_api/crimping/getCrimpingSchedule.dart';
-import '../../../model_api/login_model.dart';
+import '../../../authentication/data/models/login_model.dart';
 import '../../../model_api/machinedetails_model.dart';
 import '../../../model_api/process1/100Complete_model.dart';
 
 import '../../../model_api/startProcess_model.dart';
 
 import '../../../utils/config.dart';
-import '../../operator/location.dart';
+import '../../auto cut crimp/location.dart';
 import '../../widgets/keypad.dart';
 import '../../../service/apiService.dart';
 

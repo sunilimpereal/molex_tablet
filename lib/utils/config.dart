@@ -1,6 +1,6 @@
 String keyboardOn = "TextInput.show";
 String keyboardOff = "TextInput.hide";
-String keyboardType = keyboardOn;
+String keyboardType = keyboardOff;
 
 
 

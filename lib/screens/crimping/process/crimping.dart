@@ -24,7 +24,7 @@ import '../../../model_api/cableTerminalB_model.dart';
 import '../../../model_api/crimping/bundleDetail.dart';
 import '../../../model_api/crimping/getCrimpingSchedule.dart';
 import '../../../model_api/crimping/postCrimprejectedDetail.dart';
-import '../../operator/process/materialTableWIP.dart';
+import '../../auto cut crimp/process/materialTableWIP.dart';
 import '../../widgets/keypad.dart';
 import '../../../service/apiService.dart';
 import 'package:visibility_detector/visibility_detector.dart';

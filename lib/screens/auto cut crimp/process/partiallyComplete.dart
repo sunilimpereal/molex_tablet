@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:molex_tab/screens/operator/process/process.dart';
+import 'package:molex_tab/screens/auto%20cut%20crimp/process/process.dart';
 
 import '../../../main.dart';
-import '../../../model_api/login_model.dart';
+import '../../../authentication/data/models/login_model.dart';
 import '../../../model_api/machinedetails_model.dart';
 import '../../../model_api/partiallyComplete_model.dart';
 import '../../../model_api/schedular_model.dart';

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:molex_tab/authentication/data/auth_bloc.dart';
 import 'screens/utils/Colors.dart';
 import 'screens/utils/Fonts.dart';
 import 'screens/utils/SharePref.dart';
-import 'screens/utils/changeIp.dart';
+import 'authentication/changeIp.dart';
 
 SharedPref sharedPref = new SharedPref();
 Fonts fonts = new Fonts();
@@ -12,13 +13,29 @@ AppColors colors = new AppColors();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await sharedPref.init();
-  runApp(MyApp());
+  runApp(AppProvider());
+}
+
+class AppProvider extends StatefulWidget {
+  const AppProvider({super.key});
+
+  @override
+  State<AppProvider> createState() => _AppProviderState();
+}
+
+class _AppProviderState extends State<AppProvider> {
+  @override
+  Widget build(BuildContext context) {
+    return AuthProvider(
+      context: context,
+      child: MyApp(),
+    );
+  }
 }
 
 class MyApp extends StatefulWidget {
   final String? logged;
   MyApp({this.logged});
-  // This widget is the root of your application.
 
   @override
   _MyAppState createState() => _MyAppState();

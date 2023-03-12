@@ -9,12 +9,7 @@ class MaterialtableWIP extends StatefulWidget {
   final Function(String) getUom;
   final String? cablePartNumber;
   final List<MaterialDetail> materailList;
-  const MaterialtableWIP(
-      {Key? key,
-      this.cablePartNumber = '',
-      required this.materailList,
-      required this.matTrkPostDetail,
-      required this.getUom})
+  const MaterialtableWIP({Key? key, this.cablePartNumber = '', required this.materailList, required this.matTrkPostDetail, required this.getUom})
       : super(key: key);
 
   @override
@@ -43,8 +38,7 @@ class _MaterialtableWIPState extends State<MaterialtableWIP> {
     return Material(
       elevation: 2,
       shadowColor: Colors.white,
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0), side: BorderSide(color: Colors.transparent)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0), side: BorderSide(color: Colors.transparent)),
       child: Container(
         padding: EdgeInsets.all(4),
         decoration: BoxDecoration(
@@ -84,21 +78,13 @@ class _MaterialtableWIPState extends State<MaterialtableWIP> {
       padding: const EdgeInsets.only(bottom: 3.0),
       child: Material(
         elevation: 1,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(4.0), side: BorderSide(color: Colors.transparent)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.0), side: BorderSide(color: Colors.transparent)),
         child: Container(
           width: 320,
-          decoration: BoxDecoration(
-              color: Colors.red.shade500, borderRadius: BorderRadius.all(Radius.circular(4))),
+          decoration: BoxDecoration(color: Colors.red.shade500, borderRadius: BorderRadius.all(Radius.circular(4))),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              cell("Part No.", 0.1),
-              cell("UOM", 0.04),
-              cell("Required", 0.06),
-              cell("Loaded", 0.06),
-              cell("Available", 0.06)
-            ],
+            children: [cell("Part No.", 0.1), cell("UOM", 0.04), cell("Required", 0.06), cell("Loaded", 0.06), cell("Available", 0.06)],
           ),
         ),
       ),
@@ -106,19 +92,13 @@ class _MaterialtableWIPState extends State<MaterialtableWIP> {
   }
 
   Widget tableData() {
-    Widget row(
-        {required String partNo,
-        required String uom,
-        required String require,
-        required String loaded,
-        required String available}) {
+    Widget row({required String partNo, required String uom, required String require, required String loaded, required String available}) {
       Widget cell(String title, double width) {
         return Padding(
           padding: const EdgeInsets.all(1.0),
           child: Container(
             width: MediaQuery.of(context).size.width * width,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(6)), color: Colors.white),
+            decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(6)), color: Colors.white),
             padding: EdgeInsets.all(5),
             child: Center(
                 child: Text(

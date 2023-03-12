@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 import 'package:molex_tab/model_api/crimping/getCrimpingSchedule.dart';
-import 'package:molex_tab/model_api/login_model.dart';
+import 'package:molex_tab/authentication/data/models/login_model.dart';
 import 'package:molex_tab/model_api/machinedetails_model.dart';
 import 'package:molex_tab/model_api/startProcess_model.dart';
-import 'package:molex_tab/screens/operator/materialPick.dart';
+import 'package:molex_tab/screens/auto%20cut%20crimp/materialPick.dart';
 import 'package:molex_tab/service/apiService.dart';
 
 import '../materialPick2.dart';

@@ -3,7 +3,7 @@ import 'package:molex_tab/model_api/rawMaterial_modal.dart';
 import '../../../model_api/schedular_model.dart';
 import '../../utils/api/api_requests.dart';
 
-class OperatorRepository {
+class AutoCutRepository {
   Future<List<Schedule>> getSchedularData({required String machId, required String type, required String sameMachine}) async {
     // get schedule list for auto cut and crimp
     Schedular? schedularResponse = await ApiRequest<String, Schedular>().get(
